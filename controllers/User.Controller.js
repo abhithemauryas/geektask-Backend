@@ -72,13 +72,14 @@ exports.GetProfile = async (req, res, next) => {
 
 // Update user information
 exports.UpdateUser = async (req, res, next) => {
-  const { email, name, phoneNumber, profession, UserId } = req.body;
+  console.log("object",req.body);
+  const { email, username, phoneNumber, profession, UserId } = req.body;
 
   const user = await UserModel.findByIdAndUpdate(
     UserId,
     {
       email: email || user.email,
-      name: name || user.name,
+      name: username || user.username,
       phoneNumber: phoneNumber || user.phoneNumber,
       profession: profession || user.profession,
     },
